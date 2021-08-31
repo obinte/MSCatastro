@@ -9,6 +9,7 @@ import com.acosux.MSCatastro.util.AnxCatastroMicroempresa;
 import com.acosux.MSCatastro.util.UtilsConversiones;
 import com.acosux.MSCatastro.util.dao.GenericDaoImpl;
 import com.acosux.MSCatastro.util.dao.GenericSQLDao;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -26,6 +27,17 @@ public class CatastroMicroempresaDaoImpl extends GenericDaoImpl<AnxCatastroMicro
     public boolean existeCatastroMicroEmpresa(String identificacion) throws Exception {
         String sql = "SELECT COUNT(*)!=0 FROM anexo.anx_catastro_microempresa WHERE cat_ruc='" + identificacion + "'";
         return (boolean) UtilsConversiones.convertir(genericSQLDao.obtenerObjetoPorSql(sql));
+    }
+
+    @Override
+    public boolean insertarListadoCatastroMicroempresa(List<AnxCatastroMicroempresa> listadoCatastroMicroempresa, boolean permitirBorrar) throws Exception {
+        if (permitirBorrar) {
+            String sql = " DELETE FROM anexo.anx_catastro_microempresa";
+            int mensaje = genericSQLDao.ejecutarSQL(sql);
+        }
+
+        insertar(listadoCatastroMicroempresa);
+        return true;
     }
 
 }

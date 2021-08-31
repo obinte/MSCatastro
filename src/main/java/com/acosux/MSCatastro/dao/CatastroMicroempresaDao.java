@@ -7,6 +7,7 @@ package com.acosux.MSCatastro.dao;
 
 import com.acosux.MSCatastro.util.AnxCatastroMicroempresa;
 import com.acosux.MSCatastro.util.dao.GenericDao;
+import java.util.List;
 
 /**
  *
@@ -15,4 +16,7 @@ import com.acosux.MSCatastro.util.dao.GenericDao;
 public interface CatastroMicroempresaDao extends GenericDao<AnxCatastroMicroempresa, Integer> {
 
     public boolean existeCatastroMicroEmpresa(String codigo) throws Exception;
+
+    public boolean insertarListadoCatastroMicroempresa(List<AnxCatastroMicroempresa> listadoCatastroMicroempresa, boolean permitirBorrar) throws Exception;
+
 }

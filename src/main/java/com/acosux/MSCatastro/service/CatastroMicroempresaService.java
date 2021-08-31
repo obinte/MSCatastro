@@ -5,6 +5,10 @@
  */
 package com.acosux.MSCatastro.service;
 
+import com.acosux.MSCatastro.util.AnxCatastroMicroempresa;
+import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
+
 /**
  *
  * @author Trabajo
@@ -12,4 +16,8 @@ package com.acosux.MSCatastro.service;
 public interface CatastroMicroempresaService {
 
     public boolean existeCatastroMicroEmpresa(String identificacion) throws Exception;
+
+    @Transactional
+    public String insertarListadoCatastroMicroempresa(List<AnxCatastroMicroempresa> listado, boolean permitirBorrar) throws Exception;
+
 }
