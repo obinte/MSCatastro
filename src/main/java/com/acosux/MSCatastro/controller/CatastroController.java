@@ -36,6 +36,7 @@ public class CatastroController {
         resp.setEstadoOperacion(RespuestaWebTO.EstadoOperacionEnum.ADVERTENCIA.getValor());
         try {
             boolean respues = catastroMicroempresaService.existeCatastroMicroEmpresa(identificacion);
+            resp.setEstadoOperacion(RespuestaWebTO.EstadoOperacionEnum.EXITO.getValor());
             resp.setExtraInfo(respues);
         } catch (Exception e) {
             resp.setEstadoOperacion(RespuestaWebTO.EstadoOperacionEnum.ERROR.getValor());
