@@ -9,10 +9,6 @@ import com.acosux.MSCatastro.util.AnxCatastroMicroempresa;
 import com.acosux.MSCatastro.util.dao.GenericDao;
 import java.util.List;
 
-/**
- *
- * @author Trabajo
- */
 public interface CatastroMicroempresaDao extends GenericDao<AnxCatastroMicroempresa, Integer> {
 
     public boolean existeCatastroMicroEmpresa(String codigo) throws Exception;
